@@ -8,16 +8,15 @@ Reproduction of Edge (Windows 10) Service Worker Crash when attempting to open a
 2. Open Edge and the developer tools 
 2. Navigate to `http://localhost:3000`
 
-Observe: 
+Observe in the console log: 
 ```
 HTML1300: Navigation occurred.      localhost:3000 (1,1)
-0: Cannot convert null or undefined to object    localhost:3000 (27,2)
-CONSOLE21301: serviceWorker.getRegistrations is rejected due to unsecure context or host restriction in http://localhost:3000/.
+ServiceWorker initialization failed: TypeError: Invalid argument.
 ```
 
-Expected: `[client] loaded` in the logs
+Expected in the server log: `[wss] new connection`
 
-You'll need to clear all caches and close all (controlled) tabs to repeat the exact same reproduction.
+You'll need to clear all caches and close all (controlled) tabs to repeat this.
 You may also want to "keep (preserve) logs."
 
 _The MicrosoftEdgeSH.exe just crashes when attempting to open the web socket_. The following is in the application event log:
